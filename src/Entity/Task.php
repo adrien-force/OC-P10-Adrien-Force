@@ -29,7 +29,7 @@ class Task
     private ?Timeslot $timeslot = null;
 
     #[ORM\ManyToOne(inversedBy: 'tasks')]
-    private ?Employe $employe = null;
+    private ?User $user = null;
 
     #[ORM\ManyToOne(inversedBy: 'tasks')]
     private ?Status $status = null;
@@ -107,14 +107,14 @@ class Task
         return $this;
     }
 
-    public function getEmploye(): ?Employe
+    public function getUser(): ?User
     {
-        return $this->employe;
+        return $this->user;
     }
 
-    public function setEmploye(?Employe $employe): static
+    public function setUser(?User $user): static
     {
-        $this->employe = $employe;
+        $this->user = $user;
 
         return $this;
     }
