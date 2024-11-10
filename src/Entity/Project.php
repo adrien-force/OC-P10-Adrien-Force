@@ -43,16 +43,16 @@ class Project
     private Collection $tasks;
 
     /**
-     * @var Collection<int, Employe>
+     * @var Collection<int, User>
      */
-    #[ORM\ManyToMany(targetEntity: Employe::class, mappedBy: 'projects')]
-    private Collection $employes;
+    #[ORM\ManyToMany(targetEntity: User::class, mappedBy: 'projects')]
+    private Collection $users;
 
     public function __construct()
     {
         $this->tags = new ArrayCollection();
         $this->tasks = new ArrayCollection();
-        $this->employes = new ArrayCollection();
+        $this->users = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -178,27 +178,27 @@ class Project
     }
 
     /**
-     * @return Collection<int, Employe>
+     * @return Collection<int, User>
      */
-    public function getEmployes(): Collection
+    public function getUsers(): Collection
     {
-        return $this->employes;
+        return $this->users;
     }
 
-    public function addEmploye(Employe $employe): static
+    public function addUser(User $user): static
     {
-        if (!$this->employes->contains($employe)) {
-            $this->employes->add($employe);
-            $employe->addProject($this);
+        if (!$this->users->contains($user)) {
+            $this->users->add($user);
+            $user->addProject($this);
         }
 
         return $this;
     }
 
-    public function removeEmploye(Employe $employe): static
+    public function removeUser(User $user): static
     {
-        if ($this->employes->removeElement($employe)) {
-            $employe->removeProject($this);
+        if ($this->users->removeElement($user)) {
+            $user->removeProject($this);
         }
 
         return $this;

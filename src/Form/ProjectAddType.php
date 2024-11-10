@@ -6,6 +6,7 @@ use App\Entity\Employe;
 use App\Entity\Project;
 use App\Entity\Status;
 use App\Entity\Tag;
+use App\Entity\User;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
@@ -41,8 +42,8 @@ class ProjectAddType extends AbstractType
                 'multiple' => true,
                 'by_reference' => false,
             ])
-            ->add('employes', EntityType::class, [
-                'class' => Employe::class,
+            ->add('users', EntityType::class, [
+                'class' => User::class,
                 'choice_label' => 'fullname',
                 'multiple' => true,
                 'by_reference' => false,
