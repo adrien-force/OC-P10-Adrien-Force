@@ -31,12 +31,12 @@ class UserController extends AbstractController
             $em->persist($user);
             $em->flush();
             $this->addFlash('success', 'Le collaborateur a bien été ajouté.');
-            return $this->redirectToRoute('app_employe_index');
+            return $this->redirectToRoute('app_user_add');
         }
 
         return $this->render('user/addUser.html.twig', [
             'form' => $form->createView(),
-            'employe' => $user
+            'user' => $user
         ]);
     }
 

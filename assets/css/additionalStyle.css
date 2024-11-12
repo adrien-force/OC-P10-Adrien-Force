@@ -1,0 +1,184 @@
+body.logging-background {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+}
+
+.logging-card {
+    background-color: #4D8077;
+    width: 80%;
+    height: auto;
+    max-width: 710px;
+    box-shadow: 0 4px 24px 0 #00000008;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.logging-card > h1,
+.logging-card > h2,
+.logging-card > h3,
+.logging-card > * > h3,
+.logging-card button.button {
+    font-family: Manrope;
+    text-align: center;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+    color: #FFFFFF;
+}
+
+.logging-card > h1 {
+    font-size: 34px;
+    font-weight: 700;
+    line-height: 46.44px;
+}
+
+.logging-card > h2 {
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 30.05px;
+}
+
+.logging-card > * > h3,
+.logging-card > h3 {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 24.59px;
+}
+
+.logging-card form  label {
+    color: white;
+    font-family: Manrope;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 21.86px;
+    text-align: left;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+    padding-bottom: 10px;
+
+}
+
+main:has(.logging-card) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    border-radius: 10px;
+}
+
+.line-separator {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.hline {
+    width: 139px;
+    height: 1px;
+    background-color: white;
+    border: none;
+    margin: 20px 10px;
+}
+
+.logging-card button.button {
+    width: 224px;
+    height: 74px;
+    text-align: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 24px;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+}
+
+.logging-card a,
+.logging-card a:visited,
+.logging-card h4 {
+    font-family: Manrope;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 19.12px;
+    text-align: center;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+    color: white;
+
+}
+
+/* Responsive adjustments for small screens */
+@media (max-width: 768px) {
+    .logging-card {
+        width: 90%;
+        padding: 15px;
+    }
+
+    .logging-card > h1 {
+        font-size: 28px;
+        line-height: 38px;
+    }
+
+    .logging-card > h2 {
+        font-size: 20px;
+        line-height: 28px;
+    }
+
+    .logging-card > h3 {
+        font-size: 16px;
+        line-height: 22px;
+    }
+
+    .logging-card button.button {
+        width: 200px;
+        height: 60px;
+        font-size: 12px;
+    }
+
+    .line-separator .hline {
+        width: 100px;
+    }
+
+    main:has(.logging-card) {
+        padding: 0;
+    }
+}
+
+/* Further adjustments for very small screens */
+@media (max-width: 480px) {
+    .logging-card {
+        width: 95%;
+        padding: 10px;
+    }
+
+    .logging-card > h1 {
+        font-size: 24px;
+        line-height: 30px;
+    }
+
+    .logging-card > h2 {
+        font-size: 18px;
+        line-height: 24px;
+    }
+
+    .logging-card > h3 {
+        font-size: 14px;
+        line-height: 20px;
+    }
+
+    .logging-card button.button {
+        width: 180px;
+        height: 50px;
+        font-size: 12px;
+    }
+
+    .line-separator .hline {
+        width: 80px;
+    }
+}

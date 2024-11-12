@@ -18,6 +18,8 @@ html, body {
 div#main-container {
     display: flex;
     min-height: 100vh;
+    box-sizing: border-box;
+    width: 100%;
 }
 
 nav {
@@ -213,6 +215,7 @@ div#projects-container {
     letter-spacing: 0em;
     text-align: center;
     text-decoration: none;
+    border: none;
 }
 
 div#tasks-container {

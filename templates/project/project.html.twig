@@ -12,8 +12,8 @@
                     <div class="flex-header">
                         <h1> {{ project.name }}</h1>
                         <div class="user-list">
-                            {% for employe in project.employes %}
-                            <div class="avatar"> {{ employe.initials }}</div>
+                            {% for user in project.users %}
+                            <div class="avatar"> {{ user.initials }}</div>
                             {% endfor %}
                         </div>
                         <a class="button" href=" {{ path('app_project_edit', {id: project.id}) }}">Modifier</a>
@@ -35,9 +35,9 @@
                                             <div class="task-deadline">
                                                 <i class="fa-regular fa-calendar"></i> {{ task.deadline|date('d/m/Y') }}
                                             </div>
-                                            {% if task.employe %}
+                                            {% if task.user %}
                                             <div class="mini-user">
-                                                {{ task.employe.lastname}}
+                                                {{ task.user.lastname}}
                                             </div>
                                             {% else %}
                                             <i class="fa fa-xmark"></i>
