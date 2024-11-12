@@ -60,7 +60,15 @@
                     <div class="form-error-message">
                         {{ form_errors(form.tags) }}
                     </div>
-
+                </div>
+                <div>
+                    <div class="checkbox-container">
+                        {{ form_label(form.archived, 'Archivé', {'label_attr': {'class': 'checkbox-label'}}) }}
+                        {{ form_widget(form.archived) }}
+                    </div>
+                    <div class="form-error-message">
+                        {{ form_errors(form.archived) }}
+                    </div>
                 </div>
                 <br>
                 <br>

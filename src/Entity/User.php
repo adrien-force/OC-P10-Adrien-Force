@@ -165,6 +165,16 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this->projects;
     }
 
+    public function addProject(Project $project): static
+    {
+        if (!$this->projects->contains($project)) {
+            $this->projects->add($project);
+            $project->addUser($this);
+        }
+
+        return $this;
+    }
+
     public function setProjects(Collection $projects): static
     {
         $this->projects = $projects;
