@@ -36,10 +36,10 @@ class User
     private ?RoleEnum $role = null;
 
 
-    #[ORM\Column(type: ContractTypeEnumType::CONTRACT_TYPE_ENUM)]
+    #[ORM\Column(type: ContractTypeEnumType::CONTRACT_TYPE_ENUM, nullable: true)]
     private ?ContractTypeEnum $contractType = null;
 
-    #[ORM\Column(type: 'datetime')]
+    #[ORM\Column(type: 'datetime', nullable: true)]
     private ?DateTimeInterface $arrivalAt = null;
 
 

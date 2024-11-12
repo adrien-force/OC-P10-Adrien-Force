@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Controller;
 
 use App\Entity\User;
+use App\Enum\RoleEnum;
 use App\Form\SignInType;
 use App\Form\SignUpType;
 use Doctrine\ORM\EntityManagerInterface;
@@ -48,7 +49,8 @@ class IndexController extends AbstractController
     {
         $newUser = new User();
 
-        $form = $this->createForm(SignUpType::class);
+        $form = $this->createForm(SignUpType::class, $newUser);
+        $newUser->setRole(RoleEnum::COLLABORATOR);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -60,6 +62,7 @@ class IndexController extends AbstractController
         return $this->render('index/signUp.html.twig',
             [
                 'form' => $form->createView(),
+                'newUser' => $newUser
             ]);
     }
 }
