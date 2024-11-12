@@ -2,12 +2,12 @@
 
 namespace App\Form;
 
-use App\Entity\Employe;
 use App\Entity\Project;
 use App\Entity\Status;
 use App\Entity\Tag;
 use App\Entity\Task;
 use App\Entity\Timeslot;
+use App\Entity\User;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -32,8 +32,8 @@ class TaskAddType extends AbstractType
                 'class' => Status::class,
                 'choice_label' => 'name',
             ])
-            ->add('employe', EntityType::class, [
-                'class' => Employe::class,
+            ->add('user', EntityType::class, [
+                'class' => User::class,
                 'choice_label' => 'fullname',
             ]);
     }

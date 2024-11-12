@@ -2,7 +2,6 @@
 
 namespace App\Form;
 
-use App\Entity\Employe;
 use App\Entity\Project;
 use App\Entity\Status;
 use App\Entity\Tag;

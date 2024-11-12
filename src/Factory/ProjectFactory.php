@@ -16,8 +16,6 @@ final class ProjectFactory extends ModelFactory
             'archived' => self::faker()->boolean(),
             'tasks' => TaskFactory::new()->many(3),
             'status' => StatusFactory::randomOrCreate(),
-//            'employes' => EmployeFactory::randomOrCreate(),
-//            'tags' => TagFactory::randomOrCreate(),
         ];
     }
 
