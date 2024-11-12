@@ -9,6 +9,7 @@ use App\Entity\User;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -18,13 +19,11 @@ class ProjectEditType extends AbstractType
     {
         $builder
             ->add('name')
-            ->add('startAt', null, [
+            ->add('startAt', DateType::class, [
                 'widget' => 'single_text',
-                'required' => false,
             ])
-            ->add('deadline', null, [
+            ->add('deadline', DateType::class, [
                 'widget' => 'single_text',
-                'required' => false,
             ])
             ->add('archived',
                 CheckboxType::class,

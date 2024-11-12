@@ -9,6 +9,7 @@ use App\Entity\User;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -18,28 +19,23 @@ class ProjectAddType extends AbstractType
     {
         $builder
             ->add('name')
-            ->add('startAt', null, [
+            ->add('startAt', DateType::class, [
                 'widget' => 'single_text'
             ])
-            ->add('deadline', null, [
+            ->add('deadline', DateType::class, [
                 'widget' => 'single_text'
             ])
-            //Archived field is not needed in the add form
-//            ->add('archived',
-//                CheckboxType::class,
-//                [
-//                    'label' => 'Archive',
-//                    'required' => false,
-//                ])
             ->add('status', EntityType::class, [
                 'class' => Status::class,
                 'choice_label' => 'name',
+                'required' => false,
             ])
             ->add('tags', EntityType::class, [
                 'class' => Tag::class,
                 'choice_label' => 'id',
                 'multiple' => true,
                 'by_reference' => false,
+                'required' => false,
             ])
             ->add('users', EntityType::class, [
                 'class' => User::class,
