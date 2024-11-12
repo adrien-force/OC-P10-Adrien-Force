@@ -9,7 +9,9 @@
             </a>
         </li>
         <li class="{{ app.request.attributes.get('_route') starts with 'app_employe' ? 'active' : '' }}">
-            <a href="{{ path('app_employe_index') }}">
+            <a
+{#                    href="{{ path('') }}"#}
+            >
                 <i class="fa-regular fa-user"></i> Équipe
             </a>
         </li>
