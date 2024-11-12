@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Controller;
 
 use App\Entity\User;
+use App\Enum\ContractTypeEnum;
 use App\Enum\RoleEnum;
 use App\Form\SignInType;
 use App\Form\SignUpType;
@@ -57,8 +58,12 @@ class IndexController extends AbstractController
         EntityManagerInterface $em,
         UserPasswordHasherInterface $passwordHasher
     ): Response {
+
         $newUser = new User();
         $newUser->setRole(RoleEnum::COLLABORATOR);
+        $newUser->setActive(true);
+        $newUser->setArrivalAt(new \DateTimeImmutable());
+        $newUser->setContractType(ContractTypeEnum::CDI);
 
         $form = $this->createForm(SignUpType::class, $newUser);
         $form->handleRequest($request);
