@@ -5,6 +5,10 @@ body.logging-background {
     background-position: center;
 }
 
+button:hover {
+    cursor: pointer;
+}
+
 .logging-card {
     background-color: #4D8077;
     width: 80%;
