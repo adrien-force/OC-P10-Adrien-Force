@@ -31,13 +31,6 @@ class UserType extends AbstractType
             ->add('password', PasswordType::class, [
                 'label' => 'Password',
             ])
-            ->add('userType', ChoiceType::class, [
-                'label' => "Type d'utilisateur",
-                'choices' => UserTypeEnum::cases(),
-                'choice_label' => function ($choice) {
-                    return $choice->name;
-                },
-            ])
             ->add('contractType', ChoiceType::class, [
                 'label' => 'Contract Type',
                 'choices' => ContractTypeEnum::cases(),

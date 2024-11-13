@@ -10,7 +10,6 @@ doctrine:
         use_savepoints: true
 
         types:
-            user_type_enum: App\Doctrine\Type\UserTypeEnumType
             contract_type_enum: App\Doctrine\Type\ContractTypeEnumType
     orm:
         auto_generate_proxy_classes: true

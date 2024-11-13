@@ -6,8 +6,6 @@ namespace App\Controller;
 
 use App\Entity\User;
 use App\Enum\ContractTypeEnum;
-use App\Enum\UserTypeEnum;
-use App\Form\SignInType;
 use App\Form\SignUpType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -50,7 +48,6 @@ class IndexController extends AbstractController
     ): Response {
 
         $newUser = new User();
-        $newUser->setUserType(UserTypeEnum::COLLABORATOR);
         $newUser->setActive(true);
         $newUser->setArrivalAt(new \DateTimeImmutable());
         $newUser->setContractType(ContractTypeEnum::CDI);
@@ -61,6 +58,7 @@ class IndexController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $hashedPassword = $passwordHasher->hashPassword($newUser, $newUser->getPassword());
             $newUser->setPassword($hashedPassword);
+            $newUser->addRole('ROLE_USER');
 
             $em->persist($newUser);
             $em->flush();

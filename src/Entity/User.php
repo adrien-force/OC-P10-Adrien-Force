@@ -3,9 +3,7 @@
 namespace App\Entity;
 
 use App\Doctrine\Type\ContractTypeEnumType;
-use App\Doctrine\Type\UserTypeEnumType;
 use App\Enum\ContractTypeEnum;
-use App\Enum\UserTypeEnum;
 use App\Repository\UserRepository;
 use DateTimeInterface;
 use Doctrine\Common\Collections\Collection;
@@ -36,10 +34,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     #[ORM\Column(type: 'json', nullable: true)]
     private ?array $roles = [];
-
-    #[ORM\Column(type: UserTypeEnumType::USER_TYPE_ENUM, nullable: true)]
-    private ?UserTypeEnum $userType = null;
-
 
     #[ORM\Column(type: ContractTypeEnumType::CONTRACT_TYPE_ENUM, nullable: true)]
     private ?ContractTypeEnum $contractType = null;
@@ -111,18 +105,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setPassword(string $password): static
     {
         $this->password = $password;
-
-        return $this;
-    }
-
-    public function getUserType(): ?UserTypeEnum
-    {
-        return $this->userType;
-    }
-
-    public function setUserType(UserTypeEnum $userType): static
-    {
-        $this->userType = $userType;
 
         return $this;
     }
