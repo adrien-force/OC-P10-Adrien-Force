@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\User;
 use App\Form\UserType;
+use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -13,6 +14,16 @@ use Symfony\Component\Routing\Attribute\Route;
 
 class UserController extends AbstractController
 {
+
+    #[Route('/users', name: 'app_user_list')]
+    public function list(UserRepository $userRepository): Response
+    {
+        $users = $userRepository->findAll();
+        return $this->render('user/listUser.html.twig', [
+            'users' => $users
+        ]);
+    }
+
 
     #[Route('/user/add', name: 'app_user_add')]
 
@@ -69,6 +80,19 @@ class UserController extends AbstractController
             'form' => $form->createView(),
             'user' => $user
         ]);
+    }
+
+    #[Route('/user/delete/{id}', name: 'app_user_delete')]
+    public function delete
+    (
+        User                   $user,
+        EntityManagerInterface $em
+    ): Response
+    {
+        $em->remove($user);
+        $em->flush();
+        $this->addFlash('success', 'Le collaborateur a bien été supprimé.');
+        return $this->redirectToRoute('app_user_list');
     }
 
 }

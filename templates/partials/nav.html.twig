@@ -10,7 +10,7 @@
         </li>
         <li class="{{ app.request.attributes.get('_route') starts with 'app_employe' ? 'active' : '' }}">
             <a
-{#                    href="{{ path('') }}"#}
+                    href="{{ path('app_user_list') }}"
             >
                 <i class="fa-regular fa-user"></i> Équipe
             </a>
