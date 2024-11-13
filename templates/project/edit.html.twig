@@ -1,5 +1,14 @@
 {% extends 'base.html.twig' %}
 {% block body %}
+    <script>
+        function confirmDelete(event, projectId) {
+            event.preventDefault();
+            if (confirm('Êtes-vous sûr de vouloir supprimer ce projet ?')) {
+                window.location.href = '/project/remove/' + projectId;
+            }
+        }
+    </script>
+
 <!DOCTYPE html>
 <html lang="fr">
 <body>
@@ -75,6 +84,7 @@
                 <br>
                 <br>
                 <button class="button button-submit">Continuer</button>
+                <a href="#"  onclick="confirmDelete(event, {{ project.id }})" class="delete-task">Supprimer le projet</a>
             </form>
             {{ form_end(form) }}
         </div>

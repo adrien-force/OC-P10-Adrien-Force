@@ -1,5 +1,14 @@
 {% extends 'base.html.twig' %}
 {% block body %}
+    <script>
+        function confirmDelete(event, projectId) {
+            event.preventDefault();
+            if (confirm('Êtes-vous sûr de vouloir supprimer ce projet ?')) {
+                window.location.href = '/project/remove/' + projectId;
+            }
+        }
+    </script>
+
 <!DOCTYPE html>
 <html lang="fr">
 <body>
@@ -13,7 +22,9 @@
             <div id="title-page">
                 <div class="flex-header">
                 <h1>Projets</h1>
+                    {% if is_granted('ROLE_ADMIN') %}
                 <a class="button" href=" {{ path('app_project_add')}}">Ajouter un projet</a>
+                    {% endif %}
                 </div>
             </div>
         </header>
@@ -25,17 +36,21 @@
                         <h2>{{ project.name }}</h2>
                     </a>
                     <div class="card-project-icons">
+                        {% if is_granted('ROLE_ADMIN') %}
                         <a href="{{ path('app_project_edit', {id: project.id}) }}"><i class="fa-solid fa-pen"></i></a>
-                        <a href="{{ path('app_project_remove', {id: project.id}) }}"><i class="fa-solid fa-trash"></i></a>
+                        <a href="#" onclick="confirmDelete(event, {{ project.id }})"><i class="fa-solid fa-trash"></i></a>
+                        {% endif %}
                     </div>
                 </article>
                 {% endfor %}
+                {% if is_granted('ROLE_ADMIN') %}
                 <article class="card-project">
                     <a href="{{ path('app_project_add') }}">
                         <h2>Ajouter un projet</h2>
                         <i class="fa-solid fa-plus" style="padding-top: 1vh"></i>
                     </a>
                 </article>
+                {% endif %}
             </div>
         </div>
     </main>
