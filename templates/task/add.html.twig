@@ -7,7 +7,9 @@
         {{ include('partials/nav.html.twig') }}
         <main>
             <header>
-                <div id="current-user"></div>
+                {% if app.user %}
+                    {{ include('partials/userInitialsBadge.html.twig') }}
+                {% endif %}
                 <div id="title-page">
                     <h1>
                         {% if task.id %}
