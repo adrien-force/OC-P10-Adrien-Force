@@ -35,7 +35,8 @@ security:
 
   access_control:
     - { path: ^/(signIn|signUp|index), roles: PUBLIC_ACCESS }
-    - { path: ^/ , roles: [ROLE_USER] }
+    - { path: ^/(user|project)/(add|edit), roles: ROLE_ADMIN }
+    - { path: ^/ , roles: ROLE_USER }
 
 when@test:
   security:

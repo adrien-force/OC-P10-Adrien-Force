@@ -4,12 +4,12 @@ namespace App\Form;
 
 use App\Entity\User;
 use App\Enum\ContractTypeEnum;
-use App\Enum\UserTypeEnum;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
-use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -28,9 +28,16 @@ class UserType extends AbstractType
             ->add('email', EmailType::class, [
                 'label' => 'Email',
             ])
-            ->add('password', PasswordType::class, [
-                'label' => 'Password',
-            ])
+            ->add('password',
+                RepeatedType::class,
+                [
+                    'type' => PasswordType::class,
+                    'invalid_message' => 'Les deux mots de passe doivent être identiques.',
+                    'options' => ['attr' => ['class' => 'password-field']],
+                    'required' => true,
+                    'first_options'  => ['label' => 'Mot de passe'],
+                    'second_options' => ['label' => 'Comfirmer le mot de passe'],
+                ])
             ->add('contractType', ChoiceType::class, [
                 'label' => 'Contract Type',
                 'choices' => ContractTypeEnum::cases(),
@@ -38,6 +45,18 @@ class UserType extends AbstractType
                     return $choice->name;
                 },
             ])
+            ->add(
+                'roles', ChoiceType::class, [
+                    'label' => 'Roles',
+                    'choices' => [
+                        'Admin' => 'ROLE_ADMIN',
+                        'User' => 'ROLE_USER',
+                    ],
+                    'multiple' => false,
+                    'expanded' => false,
+                    'mapped' => false,
+                ]
+            )
             ->add('active', ChoiceType::class, [
                 'label' => 'Active',
                 'choices' => [
@@ -45,7 +64,7 @@ class UserType extends AbstractType
                     'No' => false,
                 ],
             ])
-            ->add('arrivalAt', DateTimeType::class, [
+            ->add('arrivalAt', DateType::class, [
                 'label' => 'Arrival Date',
             ])
         ;

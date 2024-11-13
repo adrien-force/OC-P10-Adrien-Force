@@ -10,7 +10,7 @@
                 <div id="current-user"></div>
                 <div id="title-page">
                     <h1>
-                        Ajouter un collaborateur
+                        Modifier le profil d'un collaborateur
                     </h1>
                 </div>
             </header>
@@ -36,20 +36,6 @@
                         {{ form_widget(form.email) }}
                         <div class="form-error-message">
                             {{ form_errors(form.email) }}
-                        </div>
-                    </div>
-                    <div>
-                        {{ form_label(form.password.first, 'Mot de passe') }}
-                        {{ form_widget(form.password.first) }}
-                        <div class="form-error-message">
-                            {{ form_errors(form.password.first) }}
-                        </div>
-                    </div>
-                    <div>
-                        {{ form_label(form.password.second, 'Confirmation mot de passe') }}
-                        {{ form_widget(form.password.second) }}
-                        <div class="form-error-message">
-                            {{ form_errors(form.password.second) }}
                         </div>
                     </div>
                     <div>
