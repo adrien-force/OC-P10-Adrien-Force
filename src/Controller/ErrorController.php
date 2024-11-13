@@ -15,7 +15,7 @@ class ErrorController extends AbstractController
     }
 
     #[Route('/error/{code}', name: 'error')]
-    public function show(int $code): Response
+    public function show(?int $code): Response
     {
         return $this->render('error/error.html.twig', ['code' => $code]);
     }
