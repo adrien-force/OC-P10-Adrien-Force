@@ -16,8 +16,7 @@ use Symfony\Component\Routing\Attribute\Route;
 
 class ProjectController extends AbstractController
 {
-    #[Route('/', name: 'app_project')]
-    #[Route('/index', name: 'app_project_index')]
+    #[Route('/project/', name: 'app_project_index')]
     public function index(ProjectRepository $projectRepository): Response
     {
         return $this->render('project/index.html.twig', [
@@ -26,7 +25,7 @@ class ProjectController extends AbstractController
         ]);
     }
 
-    #[Route('/project/{id}', name: 'app_project_show')]
+    #[Route('/project/show/{id}', name: 'app_project_show')]
     public function show
     (
         StatusRepository  $statusRepository,
@@ -35,7 +34,7 @@ class ProjectController extends AbstractController
     {
         if (!$project ||
             !$statusRepository->findAll()) {
-            return $this->redirectToRoute('app_project');
+            return $this->redirectToRoute('app_project_index');
         }
 
 
@@ -46,7 +45,7 @@ class ProjectController extends AbstractController
         ]);
     }
 
-    #[Route('/project/{id}/remove', name: 'app_project_remove')]
+    #[Route('/project/remove/{id}', name: 'app_project_remove')]
     public function remove
     (
         ProjectRepository $projectRepository,
@@ -55,7 +54,7 @@ class ProjectController extends AbstractController
     ): Response
     {
         if (!$project) {
-            return $this->redirectToRoute('app_project');
+            return $this->redirectToRoute('app_project_index');
         }
 
         //must delete all tasks before deleting the project because of the foreign key constraint
@@ -65,7 +64,7 @@ class ProjectController extends AbstractController
 
         $em->remove($project);
         $em->flush();
-        return $this->redirectToRoute('app_project');
+        return $this->redirectToRoute('app_project_index');
     }
 
     #[Route('/project/edit/{id}', name: 'app_project_edit')]
@@ -95,7 +94,7 @@ class ProjectController extends AbstractController
 
 
 
-    #[Route('/add/project', name: 'app_project_add')]
+    #[Route('/project/add', name: 'app_project_add')]
     public function add
     (
         Request                $request,
@@ -109,7 +108,7 @@ class ProjectController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $em->persist($project);
             $em->flush();
-            return $this->redirectToRoute('app_project');
+            return $this->redirectToRoute('app_project_index');
         }
 
         return $this->render('project/add.html.twig', [
