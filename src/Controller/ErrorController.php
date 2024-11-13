@@ -13,4 +13,10 @@ class ErrorController extends AbstractController
     {
         return $this->render('error/access_denied.html.twig');
     }
+
+    #[Route('/error/{code}', name: 'error')]
+    public function show(int $code): Response
+    {
+        return $this->render('error/error.html.twig', ['code' => $code]);
+    }
 }
