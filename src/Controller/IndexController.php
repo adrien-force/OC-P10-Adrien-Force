@@ -15,44 +15,34 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Attribute\Route;
+use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 class IndexController extends AbstractController
 {
-    #[Route('/index', name: 'index')]
+    #[Route('/index', name: 'app_index')]
     public function index(): Response
     {
         return $this->render('index/index.html.twig');
     }
 
-    #[Route('/signIn', name: 'signIn')]
+    #[Route('/signIn', name: 'app_signIn')]
     public function signIn(
         Request $request,
         EntityManagerInterface $em,
-        UserPasswordHasherInterface $passwordHasher
+        UserPasswordHasherInterface $passwordHasher,
+        AuthenticationUtils $authenticationUtils
     ): Response {
-        $form = $this->createForm(SignInType::class);
-        $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            $data = $form->getData();
-            $email = $data->getEmail();
-            $plainPassword = $data->getPassword();
-
-            $user = $em->getRepository(User::class)->findOneBy(['email' => $email]);
-
-            if ($user && $passwordHasher->isPasswordValid($user, $plainPassword)) {
-                return $this->redirectToRoute('app_project');
-            }
-
-            $this->addFlash('error', 'Email ou mot de passe incorrect');
-        }
+        $error = $authenticationUtils->getLastAuthenticationError();
+        $lastUsername = $authenticationUtils->getLastUsername();
 
         return $this->render('index/signIn.html.twig', [
-            'form' => $form->createView(),
+            'last_username' => $lastUsername,
+            'error' => $error
         ]);
     }
 
-    #[Route('/signUp', name: 'signUp')]
+    #[Route('/signUp', name: 'app_signUp')]
     public function signUp(
         Request $request,
         EntityManagerInterface $em,
@@ -75,7 +65,7 @@ class IndexController extends AbstractController
             $em->persist($newUser);
             $em->flush();
 
-            return $this->redirectToRoute('app_project');
+            return $this->redirectToRoute('app_project_index');
         }
 
         return $this->render('index/signUp.html.twig', [
