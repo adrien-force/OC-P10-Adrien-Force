@@ -2,13 +2,13 @@
 
 namespace App\Doctrine\Type;
 
-use App\Enum\RoleEnum;
+use App\Enum\UserTypeEnum;
 use Doctrine\DBAL\Platforms\AbstractPlatform;
 use Doctrine\DBAL\Types\Type;
 
-class RoleEnumType extends Type
+class UserTypeEnumType extends Type
 {
-    const ROLE_ENUM = 'role_enum';
+    const USER_TYPE_ENUM = 'user_type_enum';
 
     public function getSQLDeclaration(array $fieldDeclaration, AbstractPlatform $platform)
     {
@@ -17,16 +17,16 @@ class RoleEnumType extends Type
 
     public function convertToPHPValue($value, AbstractPlatform $platform)
     {
-        return !empty($value) ? RoleEnum::from($value) : null;
+        return !empty($value) ? UserTypeEnum::from($value) : null;
     }
 
     public function convertToDatabaseValue($value, AbstractPlatform $platform)
     {
-        return $value instanceof RoleEnum ? $value->name : null;
+        return $value instanceof UserTypeEnum ? $value->name : null;
     }
 
     public function getName()
     {
-        return self::ROLE_ENUM;
+        return self::USER_TYPE_ENUM;
     }
 }

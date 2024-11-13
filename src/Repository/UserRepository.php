@@ -17,19 +17,6 @@ class UserRepository extends ServiceEntityRepository
     }
 
     /**
-     * @return User[] Returns an array of User objects
-     */
-    public function findByRole(string $role): array
-    {
-        return $this->createQueryBuilder('u')
-            ->andWhere('u.role = :role')
-            ->setParameter('role', $role)
-            ->orderBy('u.id', 'ASC')
-            ->getQuery()
-            ->getResult();
-    }
-
-    /**
      * @return User|null Returns a User object or null
      */
     public function findOneByEmail(string $email): ?User

@@ -4,7 +4,7 @@ namespace App\Form;
 
 use App\Entity\User;
 use App\Enum\ContractTypeEnum;
-use App\Enum\RoleEnum;
+use App\Enum\UserTypeEnum;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
@@ -31,9 +31,9 @@ class UserType extends AbstractType
             ->add('password', PasswordType::class, [
                 'label' => 'Password',
             ])
-            ->add('role', ChoiceType::class, [
-                'label' => 'Role',
-                'choices' => RoleEnum::cases(),
+            ->add('userType', ChoiceType::class, [
+                'label' => "Type d'utilisateur",
+                'choices' => UserTypeEnum::cases(),
                 'choice_label' => function ($choice) {
                     return $choice->name;
                 },
