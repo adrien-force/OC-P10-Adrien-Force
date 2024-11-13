@@ -2,7 +2,7 @@
 
 namespace App\Enum;
 
-enum RoleEnum
+enum UserTypeEnum
 {
     case ADMIN;
     case MANAGER;
@@ -14,7 +14,7 @@ enum RoleEnum
             'ADMIN' => self::ADMIN,
             'MANAGER' => self::MANAGER,
             'COLLABORATOR' => self::COLLABORATOR,
-            default => throw new \InvalidArgumentException("Invalid role value: $value"),
+            default => throw new \InvalidArgumentException("Invalid user type value: $value"),
         };
     }
 }

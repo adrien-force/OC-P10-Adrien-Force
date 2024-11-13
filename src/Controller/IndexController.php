@@ -6,7 +6,7 @@ namespace App\Controller;
 
 use App\Entity\User;
 use App\Enum\ContractTypeEnum;
-use App\Enum\RoleEnum;
+use App\Enum\UserTypeEnum;
 use App\Form\SignInType;
 use App\Form\SignUpType;
 use Doctrine\ORM\EntityManagerInterface;
@@ -60,7 +60,7 @@ class IndexController extends AbstractController
     ): Response {
 
         $newUser = new User();
-        $newUser->setRole(RoleEnum::COLLABORATOR);
+        $newUser->setUserType(UserTypeEnum::COLLABORATOR);
         $newUser->setActive(true);
         $newUser->setArrivalAt(new \DateTimeImmutable());
         $newUser->setContractType(ContractTypeEnum::CDI);
