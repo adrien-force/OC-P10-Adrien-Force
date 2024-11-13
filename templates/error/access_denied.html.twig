@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <!DOCTYPE html>
+    <html lang="fr">
+    <body>
+    <div id="main-container">
+        {{ include('partials/nav.html.twig') }}
+        <main>
+            <header>
+                {% if app.user %}
+                    {{ include('partials/userInitialsBadge.html.twig') }}
+                {% endif %}
+                <div id="title-page">
+                    <h1>
+                        Erreur 403: Accès refusé
+                    </h1>
+                </div>
+            </header>
+            <div id="content" style="display: flex; justify-content: center">
+                <p>
+                    Vous n'avez pas les droits nécessaires pour accéder à cette page.
+                </p>
+            </div>
+        </main>
+    </div>
+    </body>
+    </html>
+{% endblock %}
