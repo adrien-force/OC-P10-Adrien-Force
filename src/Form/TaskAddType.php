@@ -10,6 +10,7 @@ use App\Entity\Timeslot;
 use App\Entity\User;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -25,8 +26,9 @@ class TaskAddType extends AbstractType
                     'required' => true,
                 ])
             ->add('description')
-            ->add('deadline', null, [
-                'widget' => 'single_text'
+            ->add('deadline', DateType::class, [
+                'widget' => 'single_text',
+                'required' => false,
             ])
             ->add('status', EntityType::class, [
                 'class' => Status::class,

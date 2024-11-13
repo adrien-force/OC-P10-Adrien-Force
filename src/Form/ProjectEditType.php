@@ -21,9 +21,11 @@ class ProjectEditType extends AbstractType
             ->add('name')
             ->add('startAt', DateType::class, [
                 'widget' => 'single_text',
+                'required' => false,
             ])
             ->add('deadline', DateType::class, [
                 'widget' => 'single_text',
+                'required' => false,
             ])
             ->add('archived',
                 CheckboxType::class,
