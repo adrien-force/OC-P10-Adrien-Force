@@ -19,24 +19,6 @@ class ProjectAddType extends AbstractType
     {
         $builder
             ->add('name')
-            ->add('startAt', DateType::class, [
-                'widget' => 'single_text'
-            ])
-            ->add('deadline', DateType::class, [
-                'widget' => 'single_text'
-            ])
-            ->add('status', EntityType::class, [
-                'class' => Status::class,
-                'choice_label' => 'name',
-                'required' => false,
-            ])
-            ->add('tags', EntityType::class, [
-                'class' => Tag::class,
-                'choice_label' => 'id',
-                'multiple' => true,
-                'by_reference' => false,
-                'required' => false,
-            ])
             ->add('users', EntityType::class, [
                 'class' => User::class,
                 'choice_label' => 'fullname',
