@@ -21,8 +21,6 @@ services:
             - '../src/Kernel.php'
     App\Twig\EnumExtension:
         tags: ['twig.extension']
-    App\Twig\RoleExtension:
-        tags: ['twig.extension']
     App\Controller\ErrorController:
         tags: ['controller.service_arguments']
 

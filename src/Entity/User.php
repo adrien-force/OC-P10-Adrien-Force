@@ -201,6 +201,13 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return array_unique($roles);
     }
 
+    public function getRoleLabel(): string {
+        return match($this->getRoles()[0]) {
+            'ROLE_ADMIN' => 'Admin',
+            'ROLE_USER' => 'Collaborateur',
+        };
+}
+
     public function setRoles(?array $roles): User
     {
         $this->roles = $roles;
