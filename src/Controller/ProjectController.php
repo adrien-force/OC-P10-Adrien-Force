@@ -13,6 +13,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
+use Symfony\Component\Security\Http\Attribute\IsGranted;
 
 class ProjectController extends AbstractController
 {
@@ -32,6 +33,7 @@ class ProjectController extends AbstractController
     }
 
     #[Route('/project/show/{id}', name: 'app_project_show')]
+    #[isGranted('view', subject: 'project')]
     public function show
     (
         StatusRepository  $statusRepository,
@@ -52,6 +54,7 @@ class ProjectController extends AbstractController
     }
 
     #[Route('/project/remove/{id}', name: 'app_project_remove')]
+    #[IsGranted('edit', subject: 'project')]
     public function remove
     (
         ProjectRepository $projectRepository,
@@ -74,6 +77,7 @@ class ProjectController extends AbstractController
     }
 
     #[Route('/project/edit/{id}', name: 'app_project_edit')]
+    #[IsGranted('edit', subject: 'project')]
     public function edit(
         ProjectRepository      $projectRepository,
         Project                    $project,
@@ -101,6 +105,7 @@ class ProjectController extends AbstractController
 
 
     #[Route('/project/add', name: 'app_project_add')]
+    #[IsGranted('add')]
     public function add
     (
         Request                $request,

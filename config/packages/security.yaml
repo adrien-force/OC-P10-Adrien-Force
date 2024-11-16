@@ -30,6 +30,9 @@ security:
   # Easy way to control access for large sections of your site
   # Note: Only the *first* access control that matches will be used
 
+  access_decision_manager:
+    strategy: affirmative # Affirmative is default behavior
+
   role_hierarchy:
     ROLE_ADMIN: ROLE_USER
 
@@ -37,7 +40,7 @@ security:
 
   access_control:
     - { path: ^/(signIn|signUp|index|access-denied|error), roles: PUBLIC_ACCESS }
-    - { path: ^/(user|project)/(add|edit/delete), roles: ROLE_ADMIN }
+#    - { path: ^/(user|project)/(add|edit/delete), roles: ROLE_ADMIN }
     - { path: ^/ , roles: ROLE_USER }
 
 when@test:
