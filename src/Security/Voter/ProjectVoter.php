@@ -15,9 +15,7 @@ class ProjectVoter extends Voter
     const EDIT = 'edit';
     const ADD = 'add';
 
-    public function __construct(private readonly Security $security,)
-    {
-    }
+    public function __construct(private readonly Security $security){}
 
     protected function supports(string $attribute, mixed $subject): bool
     {
@@ -25,7 +23,7 @@ class ProjectVoter extends Voter
             return false;
         }
 
-        if (!$subject instanceof Project) {
+        if ($subject !== null && !$subject instanceof Project) {
             return false;
         }
 
@@ -43,21 +41,21 @@ class ProjectVoter extends Voter
 
         return match ($attribute) {
             self::VIEW =>  $this->canView($project, $user),
-            self::EDIT, self::ADD =>  $this->canEditOrAdd(),
+            self::EDIT, self::ADD =>  $this->canEditOrAdd($project),
             default => Throw new \LogicException('Voter has reached a non existing attribute, this should not happen'),
         };
     }
 
     private function canView(mixed $project, User $user): bool
     {
-        if ($this->canEditOrAdd()) {
+        if ($this->canEditOrAdd($project)) {
             return true;
         }
 
         return in_array($user, $project->getUsers()->toArray());
     }
 
-    private function canEditOrAdd(): bool
+    private function canEditOrAdd($project): bool
     {
         return $this->security->isGranted('ROLE_ADMIN');
     }
