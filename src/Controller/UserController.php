@@ -11,6 +11,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Attribute\Route;
+use Symfony\Component\Security\Http\Attribute\IsGranted;
 
 class UserController extends AbstractController
 {
@@ -26,7 +27,7 @@ class UserController extends AbstractController
 
 
     #[Route('/user/add', name: 'app_user_add')]
-
+    #[isGranted('edit')]
     public function add
     (
         Request                $request,
@@ -58,6 +59,7 @@ class UserController extends AbstractController
     }
 
     #[Route('/user/edit/{id}', name: 'app_user_edit')]
+    #[isGranted('edit', subject: 'user')]
     public function edit
     (
         User                   $user,
@@ -83,6 +85,7 @@ class UserController extends AbstractController
     }
 
     #[Route('/user/delete/{id}', name: 'app_user_delete')]
+    #[isGranted('edit', subject: 'user')]
     public function delete
     (
         User                   $user,
