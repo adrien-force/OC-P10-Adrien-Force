@@ -27,9 +27,6 @@ class Project
     #[ORM\Column(nullable: false)]
     private bool $archived = false;
 
-    #[ORM\ManyToOne(inversedBy: 'project')]
-    private ?Status $status = null;
-
     /**
      * @var Collection<int, Tag>
      */
@@ -104,18 +101,6 @@ class Project
     public function setArchived(bool $archived): static
     {
         $this->archived = $archived;
-
-        return $this;
-    }
-
-    public function getStatus(): ?Status
-    {
-        return $this->status;
-    }
-
-    public function setStatus(?Status $status): static
-    {
-        $this->status = $status;
 
         return $this;
     }

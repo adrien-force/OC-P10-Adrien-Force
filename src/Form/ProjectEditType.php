@@ -33,11 +33,6 @@ class ProjectEditType extends AbstractType
                     'label' => 'Archive',
                     'required' => false,
                 ])
-            ->add('status', EntityType::class, [
-                'class' => Status::class,
-                'choice_label' => 'name',
-                'required' => false,
-            ])
             ->add('tags', EntityType::class, [
                 'class' => Tag::class,
                 'choice_label' => 'tag',
