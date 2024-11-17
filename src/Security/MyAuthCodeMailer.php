@@ -5,6 +5,7 @@ namespace App\Security;
 use Scheb\TwoFactorBundle\Model\Email\TwoFactorInterface;
 use Scheb\TwoFactorBundle\Mailer\AuthCodeMailerInterface;
 use Symfony\Component\Mailer\MailerInterface;
+use Symfony\Component\Mime\Address;
 use Symfony\Component\Mime\Email;
 use Twig\Environment;
 
@@ -25,7 +26,7 @@ class MyAuthCodeMailer implements AuthCodeMailerInterface
         ]);
 
         $email = (new Email())
-            ->from('hello@demomailtrap.com')
+            ->from(new Address('hello@demomailtrap.com', 'Authentification TaskLinker'))
             ->to($user->getEmail())
             ->subject("Votre code d'authentification à deux facteurs")
             ->html($htmlContent);
