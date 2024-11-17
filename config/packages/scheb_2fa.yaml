@@ -12,3 +12,4 @@ scheb_two_factor:
         sender_name: TaskLinker Authentication
         template: 2FA/2fa_form.html.twig
         mailer: App\Security\MyAuthCodeMailer
+    two_factor_condition: App\Security\TwoFactor\MyTwoFactorCondition

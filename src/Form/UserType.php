@@ -67,6 +67,13 @@ class UserType extends AbstractType
             ->add('arrivalAt', DateType::class, [
                 'label' => 'Arrival Date',
             ])
+            ->add('useTwoFactorAuth', ChoiceType::class, [
+                'label' => 'Use Two Factor Auth',
+                'choices' => [
+                    'Oui' => true,
+                    'Non' => false,
+                ],
+            ])
         ;
     }
 

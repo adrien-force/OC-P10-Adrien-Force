@@ -39,6 +39,13 @@
             {{ form_errors(form.password.second) }}
         </div>
     </div>
+    <div>
+        {{ form_label(form.useTwoFactorAuth, 'Double authentification par email') }}
+        {{ form_widget(form.useTwoFactorAuth) }}
+        <div class="form-error-message">
+            {{ form_errors(form.useTwoFactorAuth) }}
+        </div>
+    </div>
     <br>
     <br>
     <button class="button button-submit" style="width: 100%">Continuer</button>

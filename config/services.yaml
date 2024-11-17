@@ -28,6 +28,9 @@ services:
             $mailer: '@mailer'
         tags:
             - { name: 'scheb_two_factor.auth_code_mailer' }
+    App\Security\TwoFactor\MyTwoFactorCondition:
+        arguments:
+            $security: '@security.helper'
 framework:
     error_controller: 'App\Controller\ErrorController::show'
     # add more service definitions when explicit configuration is needed

@@ -60,6 +60,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface, TwoFact
     #[ORM\Column(type: 'string', nullable: true)]
     private ?string $authCode;
 
+    #[ORM\Column(type: 'boolean', nullable: true)]
+    private bool $useTwoFactorAuth = false;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -245,5 +248,16 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface, TwoFact
     public function setEmailAuthCode(string $authCode): void
     {
         $this->authCode = $authCode;
+    }
+
+    public function isUseTwoFactorAuth(): bool
+    {
+        return $this->useTwoFactorAuth;
+    }
+
+    public function setUseTwoFactorAuth(bool $useTwoFactorAuth): User
+    {
+        $this->useTwoFactorAuth = $useTwoFactorAuth;
+        return $this;
     }
 }
