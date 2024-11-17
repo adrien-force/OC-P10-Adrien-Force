@@ -23,6 +23,8 @@ div#main-container {
 }
 
 nav {
+    display: flex;
+    flex-direction: column;
     width: 300px;
     flex-grow: 0;
     flex-shrink: 0;

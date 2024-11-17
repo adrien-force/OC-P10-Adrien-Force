@@ -137,6 +137,18 @@ input[type="checkbox"] {
     cursor: pointer;
 }
 
+.logout-container {
+    margin-top:auto;
+    display: flex;
+    justify-content: center;
+    color:white
+}
+
+.logout-link {
+    text-decoration: none;
+    color:inherit
+}
+
 /* Responsive adjustments for small screens */
 @media (max-width: 768px) {
     .logging-card {
