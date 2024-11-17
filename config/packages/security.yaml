@@ -22,6 +22,8 @@ security:
         login_path: app_signIn
         check_path: app_signIn
         default_target_path: app_project_index
+        always_use_default_target_path: true
+
       logout:
         path: /logout
         target: app_index
