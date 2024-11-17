@@ -16,4 +16,22 @@ class IndexController extends AbstractController
     {
         return $this->render('index/index.html.twig');
     }
+
+    #[Route('/mailtest', name: 'app_mail')]
+    public function testRenderMail(): Response
+    {
+        $user = new class {
+            public function getEmail(): string
+            {
+                return 'email@test.com';
+            }
+        };
+
+        $authCode = '123456';
+
+        return $this->render('email/two_factor_auth_code.html.twig', [
+            'user' => $user,
+            'authCode' => $authCode
+        ]);
+    }
 }

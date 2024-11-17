@@ -1,0 +1,11 @@
+{% extends 'email/mail_template.html.twig' %}
+
+{% block loggingcard %}
+
+    <h1>Votre code de vérification</h1>
+    <h3>Bonjour {{ user.email }},</h3>
+    <h3>Votre code de vérification à deux facteurs est : </h3>
+    <h2> <strong>{{ authCode }}</strong> </h2>
+
+
+{% endblock %}

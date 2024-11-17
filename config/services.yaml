@@ -23,7 +23,11 @@ services:
         tags: ['twig.extension']
     App\Controller\ErrorController:
         tags: ['controller.service_arguments']
-
+    App\Security\MyAuthCodeMailer:
+        arguments:
+            $mailer: '@mailer'
+        tags:
+            - { name: 'scheb_two_factor.auth_code_mailer' }
 framework:
     error_controller: 'App\Controller\ErrorController::show'
     # add more service definitions when explicit configuration is needed

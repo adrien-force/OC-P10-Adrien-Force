@@ -28,3 +28,4 @@
 ###> phpstorm ###
 /.idea
 ###< phpstorm ###
+/config/secrets/dev/dev.decrypt.private.php
