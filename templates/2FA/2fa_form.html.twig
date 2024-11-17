@@ -3,8 +3,8 @@
 
     <div class="container">
         <div class="row">
-            <div class="login-form bg-light mt-4 p-4">
-                <h1 class="h3 mb-3 font-weight-normal">Two Factor Authentication</h1>
+            <div style="color: white; display:flex; flex-direction: column; justify-content: center; align-items: center ">
+                <h1 class="">Two Factor Authentication</h1>
                 <p>
                     Un code vous a été envoyer par email.
                 </p>
@@ -29,7 +29,7 @@
                     {% if isCsrfProtectionEnabled %}
                         <input type="hidden" name="{{ csrfParameterName }}" value="{{ csrf_token(csrfTokenId) }}">
                     {% endif %}
-                    <p class="submit"><input type="submit" value="{{ "login"|trans({}, 'SchebTwoFactorBundle') }}" /></p>
+                    <p class="submit"><input class="button button-submit" type="submit" value="{{ "Valider"|trans({}, 'SchebTwoFactorBundle') }}" /></p>
                 </form>
 {#                <p class="cancel"><a href="{{ logoutPath }}">{{ "cancel"|trans({}, 'SchebTwoFactorBundle') }}</a></p>#}
             </div>
