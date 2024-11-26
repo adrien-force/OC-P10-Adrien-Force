@@ -25,9 +25,6 @@ class Task
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $deadline = null;
 
-    #[ORM\OneToOne(mappedBy: 'task', cascade: ['persist', 'remove'])]
-    private ?Timeslot $timeslot = null;
-
     #[ORM\ManyToOne(inversedBy: 'tasks')]
     private ?User $user = null;
 
@@ -86,23 +83,6 @@ class Task
     public function setDeadline(?\DateTimeInterface $deadline): static
     {
         $this->deadline = $deadline;
-
-        return $this;
-    }
-
-    public function getTimeslot(): ?Timeslot
-    {
-        return $this->timeslot;
-    }
-
-    public function setTimeslot(Timeslot $timeslot): static
-    {
-        // set the owning side of the relation if necessary
-        if ($timeslot->getTask() !== $this) {
-            $timeslot->setTask($this);
-        }
-
-        $this->timeslot = $timeslot;
 
         return $this;
     }

@@ -2,11 +2,8 @@
 
 namespace App\Form;
 
-use App\Entity\Project;
 use App\Entity\Status;
-use App\Entity\Tag;
 use App\Entity\Task;
-use App\Entity\Timeslot;
 use App\Entity\User;
 use App\Repository\UserRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
