@@ -28,7 +28,7 @@ class TaskController extends AbstractController
         EntityManagerInterface $em,
         Task $task
     ): Response {
-        $form = $this->createForm(TaskAddType::class, $task);
+        $form = $this->createForm(TaskAddType::class, $task, ['project' => $task->getProject()]);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
