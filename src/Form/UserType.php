@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\User;
 use App\Enum\ContractTypeEnum;
+use App\Validator\Constraints\PasswordConstraint;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
@@ -35,7 +36,10 @@ class UserType extends AbstractType
                     'invalid_message' => 'Les deux mots de passe doivent être identiques.',
                     'options' => ['attr' => ['class' => 'password-field']],
                     'required' => true,
-                    'first_options'  => ['label' => 'Mot de passe'],
+                    'first_options'  => [
+                        'label' => 'Mot de passe',
+                        'constraints' => [new PasswordConstraint()],
+                    ],
                     'second_options' => ['label' => 'Comfirmer le mot de passe'],
                 ])
             ->add('contractType', ChoiceType::class, [
