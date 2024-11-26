@@ -50,10 +50,11 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface, TwoFact
     private ?Collection $tasks = null;
 
     /**
-     * @var Collection<int, Project>|null
+     * @var Collection<int, Project>
      */
     #[ORM\ManyToMany(targetEntity: Project::class, inversedBy: 'users', cascade: ['persist'])]
-    private ?Collection $projects = null;
+    #[ORM\JoinColumn(nullable: true)]
+    private Collection $projects;
 
     private ?bool $active = null;
 
@@ -157,7 +158,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface, TwoFact
         return $this->projects;
     }
 
-    public function addProject(Project $project): static
+    public function addProject(?Project $project): static
     {
         if (!$this->projects->contains($project)) {
             $this->projects->add($project);
