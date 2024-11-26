@@ -2,12 +2,8 @@
 
 namespace App\DataFixtures;
 
-use App\Factory\EmployeFactory;
 use App\Factory\ProjectFactory;
-use App\Factory\StatusFactory;
 use App\Factory\TagFactory;
-use App\Factory\TaskFactory;
-use App\Factory\TimeslotFactory;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 
@@ -15,12 +11,17 @@ class AppFixtures extends Fixture
 {
     public function load(ObjectManager $manager): void
     {
-        EmployeFactory::createMany(10);
-        StatusFactory::createMany(3);
-        TagFactory::createMany(3);
-        TaskFactory::createMany(10);
-        TimeslotFactory::createMany(10);
+        TagFactory::createMany(10);
+        $master = ProjectFactory::createOne([
+            'name' => 'Master Project',
+        ]);
+        /**  ADMIN CREATION  **/
+        $users = $master->getUsers();
+        $users[0]->setEmail('admin@tasklinker.com');
+        $users[0]->setRoles(['ROLE_ADMIN']);
+        $users[0]->setFirstname('Admin');
+        $users[0]->setLastname('Tasklinker');
+        /** **/
         ProjectFactory::createMany(4);
-
     }
 }
