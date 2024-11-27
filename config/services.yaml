@@ -4,7 +4,7 @@
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices.html#use-parameters-for-application-configuration
 parameters:
-
+    locale: 'en'
 services:
     # default configuration for services in *this* file
     _defaults:
@@ -31,6 +31,17 @@ services:
     App\Security\TwoFactor\MyTwoFactorCondition:
         arguments:
             $security: '@security.helper'
+    App\EventListener\LocaleListener:
+        arguments:
+            $languageSwitcher: '@App\Service\LanguageSwitcher'
+        tags:
+            - { name: kernel.event_listener, event: kernel.request, method: onKernelRequest }
+    App\Service\LanguageSwitcher:
+        arguments:
+            $requestStack: '@request_stack'
+            $sessionFactory: '@session.factory'
+            $defaultLocale: '%locale%'
+
 framework:
     error_controller: 'App\Controller\ErrorController::show'
     # add more service definitions when explicit configuration is needed

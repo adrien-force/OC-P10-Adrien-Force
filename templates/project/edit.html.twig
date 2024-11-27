@@ -3,7 +3,7 @@
     <script>
         function confirmDelete(event, projectId) {
             event.preventDefault();
-            if (confirm('Êtes-vous sûr de vouloir supprimer ce projet ?')) {
+            if (confirm('{{ 'project.edit.confirm_delete'|trans }}')) {
                 window.location.href = '/project/remove/' + projectId;
             }
         }
@@ -28,7 +28,7 @@
             <form name="projet" method="post">
                 <div>
                     <label for="projet_nom" class="required">
-                        {{ form_label(form.name, 'Titre du projet') }}
+                        {{ form_label(form.name, 'project.edit.name_label'|trans) }}
                         {{ form_widget(form.name) }}
                         <div class="form-error-message">
                             {{ form_errors(form.name) }}
@@ -36,7 +36,7 @@
                     </label>
                 </div>
                 <div>
-                    {{ form_label(form.users, 'Inviter des membres') }}
+                    {{ form_label(form.users, 'project.edit.invite_members_label'|trans) }}
                     {{ form_widget(form.users) }}
                     <div class="form-error-message">
                         {{ form_errors(form.users) }}
@@ -44,21 +44,21 @@
                 </div>
                 <br>
                 <div>
-                    {{ form_label(form.startAt, 'Date de début') }}
+                    {{ form_label(form.startAt, 'project.edit.start_date_label'|trans) }}
                     {{ form_widget(form.startAt) }}
                     <div class="form-error-message">
                         {{ form_errors(form.startAt) }}
                     </div>
                 </div>
                 <div>
-                    {{ form_label(form.deadline, 'Date de fin') }}
+                    {{ form_label(form.deadline, 'project.edit.deadline_label'|trans) }}
                     {{ form_widget(form.deadline) }}
                     <div class="form-error-message">
                         {{ form_errors(form.deadline) }}
                     </div>
                 </div>
                 <div>
-                    {{ form_label(form.tags, 'Tags') }}
+                    {{ form_label(form.tags, 'project.edit.tags_label'|trans) }}
                     {{ form_widget(form.tags) }}
                     <div class="form-error-message">
                         {{ form_errors(form.tags) }}
@@ -66,7 +66,7 @@
                 </div>
                 <div>
                     <div class="checkbox-container">
-                        {{ form_label(form.archived, 'Archivé', {'label_attr': {'class': 'checkbox-label'}}) }}
+                        {{ form_label(form.archived, 'project.edit.archived_label'|trans, {'label_attr': {'class': 'checkbox-label'}}) }}
                         {{ form_widget(form.archived) }}
                     </div>
                     <div class="form-error-message">
@@ -75,8 +75,8 @@
                 </div>
                 <br>
                 <br>
-                <button class="button button-submit">Continuer</button>
-                <a href="#"  onclick="confirmDelete(event, {{ project.id }})" class="delete-task">Supprimer le projet</a>
+                <button class="button button-submit">{{ 'project.edit.continue_button'|trans }}</button>
+                <a href="#" onclick="confirmDelete(event, {{ project.id }})" class="delete-task">{{ 'project.edit.delete_project'|trans }}</a>
             </form>
             {{ form_end(form) }}
         </div>

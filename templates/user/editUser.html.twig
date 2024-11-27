@@ -11,44 +11,42 @@
                     {{ include('partials/userInitialsBadge.html.twig') }}
                 {% endif %}
                 <div id="title-page">
-                    <h1>
-                        Modifier le profil d'un collaborateur
-                    </h1>
+                    <h1>{{ 'user.edit.title'|trans }}</h1>
                 </div>
             </header>
             <div id="content">
                 {{ form_start(form) }}
                 <form name="user" method="post">
                     <div>
-                        {{ form_label(form.lastname, 'Nom') }}
+                        {{ form_label(form.lastname, 'user.edit.lastname_label'|trans) }}
                         {{ form_widget(form.lastname) }}
                         <div class="form-error-message">
                             {{ form_errors(form.lastname) }}
                         </div>
                     </div>
                     <div>
-                        {{ form_label(form.firstname, 'Prénom') }}
+                        {{ form_label(form.firstname, 'user.edit.firstname_label'|trans) }}
                         {{ form_widget(form.firstname) }}
                         <div class="form-error-message">
                             {{ form_errors(form.firstname) }}
                         </div>
                     </div>
                     <div>
-                        {{ form_label(form.email, 'Email') }}
+                        {{ form_label(form.email, 'user.edit.email_label'|trans) }}
                         {{ form_widget(form.email) }}
                         <div class="form-error-message">
                             {{ form_errors(form.email) }}
                         </div>
                     </div>
                     <div>
-                        {{ form_label(form.active, 'Actif') }}
+                        {{ form_label(form.active, 'user.edit.active_label'|trans) }}
                         {{ form_widget(form.active) }}
                         <div class="form-error-message">
                             {{ form_errors(form.active) }}
                         </div>
                     </div>
                     <div>
-                        {{ form_label(form.roles, 'Rôle') }}
+                        {{ form_label(form.roles, 'user.edit.role_label'|trans) }}
                         {{ form_widget(form.roles) }}
                         <div class="form-error-message">
                             {{ form_errors(form.roles) }}
@@ -56,14 +54,14 @@
                     </div>
                     <div class="form-flex">
                         <div>
-                            {{ form_label(form.arrivalAt, 'Date d\'arrivée') }}
+                            {{ form_label(form.arrivalAt, 'user.edit.arrival_date_label'|trans) }}
                             {{ form_widget(form.arrivalAt) }}
                             <div class="form-error-message">
                                 {{ form_errors(form.arrivalAt) }}
                             </div>
                         </div>
                         <div>
-                            {{ form_label(form.contractType, 'Type de contrat') }}
+                            {{ form_label(form.contractType, 'user.edit.contract_type_label'|trans) }}
                             {{ form_widget(form.contractType) }}
                             <div class="form-error-message">
                                 {{ form_errors(form.contractType) }}
@@ -71,13 +69,13 @@
                         </div>
                     </div>
                     <div>
-                        {{ form_label(form.useTwoFactorAuth, 'Double authentification par email') }}
+                        {{ form_label(form.useTwoFactorAuth, 'user.edit.two_factor_auth_label'|trans) }}
                         {{ form_widget(form.useTwoFactorAuth) }}
                         <div class="form-error-message">
                             {{ form_errors(form.useTwoFactorAuth) }}
                         </div>
                     </div>
-                    <button class="button button-submit">Enregistrer</button>
+                    <button class="button button-submit">{{ 'user.edit.save_button'|trans }}</button>
                 </form>
                 {{ form_end(form) }}
                 {% for label, messages in app.flashes %}

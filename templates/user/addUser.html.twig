@@ -11,58 +11,56 @@
                     {{ include('partials/userInitialsBadge.html.twig') }}
                 {% endif %}
                 <div id="title-page">
-                    <h1>
-                        Ajouter un collaborateur
-                    </h1>
+                    <h1>{{ 'user.add.title'|trans }}</h1>
                 </div>
             </header>
             <div id="content">
                 {{ form_start(form) }}
                 <form name="user" method="post">
                     <div>
-                        {{ form_label(form.lastname, 'Nom') }}
+                        {{ form_label(form.lastname, 'user.add.lastname_label'|trans) }}
                         {{ form_widget(form.lastname) }}
                         <div class="form-error-message">
                             {{ form_errors(form.lastname) }}
                         </div>
                     </div>
                     <div>
-                        {{ form_label(form.firstname, 'Prénom') }}
+                        {{ form_label(form.firstname, 'user.add.firstname_label'|trans) }}
                         {{ form_widget(form.firstname) }}
                         <div class="form-error-message">
                             {{ form_errors(form.firstname) }}
                         </div>
                     </div>
                     <div>
-                        {{ form_label(form.email, 'Email') }}
+                        {{ form_label(form.email, 'user.add.email_label'|trans) }}
                         {{ form_widget(form.email) }}
                         <div class="form-error-message">
                             {{ form_errors(form.email) }}
                         </div>
                     </div>
                     <div>
-                        {{ form_label(form.password.first, 'Mot de passe') }}
+                        {{ form_label(form.password.first, 'user.add.password_label'|trans) }}
                         {{ form_widget(form.password.first) }}
                         <div class="form-error-message">
                             {{ form_errors(form.password.first) }}
                         </div>
                     </div>
                     <div>
-                        {{ form_label(form.password.second, 'Confirmation mot de passe') }}
+                        {{ form_label(form.password.second, 'user.add.confirm_password_label'|trans) }}
                         {{ form_widget(form.password.second) }}
                         <div class="form-error-message">
                             {{ form_errors(form.password.second) }}
                         </div>
                     </div>
                     <div>
-                        {{ form_label(form.active, 'Actif') }}
+                        {{ form_label(form.active, 'user.add.active_label'|trans) }}
                         {{ form_widget(form.active) }}
                         <div class="form-error-message">
                             {{ form_errors(form.active) }}
                         </div>
                     </div>
                     <div>
-                        {{ form_label(form.roles, 'Rôle') }}
+                        {{ form_label(form.roles, 'user.add.role_label'|trans) }}
                         {{ form_widget(form.roles) }}
                         <div class="form-error-message">
                             {{ form_errors(form.roles) }}
@@ -70,14 +68,14 @@
                     </div>
                     <div class="form-flex">
                         <div>
-                            {{ form_label(form.arrivalAt, 'Date d\'arrivée') }}
+                            {{ form_label(form.arrivalAt, 'user.add.arrival_date_label'|trans) }}
                             {{ form_widget(form.arrivalAt) }}
                             <div class="form-error-message">
                                 {{ form_errors(form.arrivalAt) }}
                             </div>
                         </div>
                         <div>
-                            {{ form_label(form.contractType, 'Type de contrat') }}
+                            {{ form_label(form.contractType, 'user.add.contract_type_label'|trans) }}
                             {{ form_widget(form.contractType) }}
                             <div class="form-error-message">
                                 {{ form_errors(form.contractType) }}
@@ -85,13 +83,13 @@
                         </div>
                     </div>
                     <div>
-                        {{ form_label(form.useTwoFactorAuth, 'Double authentification par email') }}
+                        {{ form_label(form.useTwoFactorAuth, 'user.add.two_factor_auth_label'|trans) }}
                         {{ form_widget(form.useTwoFactorAuth) }}
                         <div class="form-error-message">
                             {{ form_errors(form.useTwoFactorAuth) }}
                         </div>
                     </div>
-                    <button class="button button-submit">Enregistrer</button>
+                    <button class="button button-submit">{{ 'user.add.save_button'|trans }}</button>
                 </form>
                 {{ form_end(form) }}
                 {% for label, messages in app.flashes %}

@@ -2,38 +2,38 @@
 
 {% block loggingcard %}
 
-<h1 style="padding-bottom: 30px"> S’inscrire </h1>
+    <h1 style="padding-bottom: 30px"> {{ 'signUp.title'|trans }} </h1>
 <form name="user" method="post">
     <div>
-        {{ form_label(form.lastname, 'Nom') }}
+        {{ form_label(form.lastname, 'signUp.lastname_label'|trans) }}
         {{ form_widget(form.lastname) }}
         <div class="form-error-message">
             {{ form_errors(form.lastname) }}
         </div>
     </div>
     <div>
-        {{ form_label(form.firstname, 'Prénom') }}
+        {{ form_label(form.firstname, 'signUp.firstname_label'|trans) }}
         {{ form_widget(form.firstname) }}
         <div class="form-error-message">
             {{ form_errors(form.firstname) }}
         </div>
     </div>
     <div>
-        {{ form_label(form.email, 'E-mail') }}
+        {{ form_label(form.email, 'signUp.email_label'|trans) }}
         {{ form_widget(form.email) }}
         <div class="form-error-message">
             {{ form_errors(form.email) }}
         </div>
     </div>
     <div>
-        {{ form_label(form.password.first, 'Mot de passe') }}
+        {{ form_label(form.password.first, 'signUp.password_label'|trans) }}
         {{ form_widget(form.password.first) }}
         <div class="form-error-message">
             {{ form_errors(form.password.first) }}
         </div>
     </div>
     <div>
-        {{ form_label(form.password.second, 'Confirmation mot de passe') }}
+        {{ form_label(form.password.second, 'signUp.confirm_password_label'|trans) }}
         {{ form_widget(form.password.second) }}
         <div class="form-error-message">
             {{ form_errors(form.password.second) }}
@@ -41,7 +41,7 @@
     </div>
     <br>
     <br>
-    <button class="button button-submit" style="width: 100%">Continuer</button>
+    <button class="button button-submit" style="width: 100%">{{ 'signUp.continue_button'|trans }}</button>
 </form>
-    <a href="{{ path('app_signIn') }}" style="padding-top: 30px">Vous avez déjà un compte ?</a>
+    <a href="{{ path('app_signIn') }}" style="padding-top: 30px">{{ 'signUp.already_have_account'|trans }}</a>
 {% endblock %}

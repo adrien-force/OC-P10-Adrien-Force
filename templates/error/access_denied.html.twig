@@ -12,13 +12,13 @@
                 {% endif %}
                 <div id="title-page">
                     <h1>
-                        Erreur 403: Accès refusé
+                        {{ 'error.unauthorized.title'|trans }}
                     </h1>
                 </div>
             </header>
             <div id="content" style="display: flex; justify-content: center">
                 <p>
-                    Vous n'avez pas les droits nécessaires pour accéder à cette page.
+                    {{ 'error.unauthorized.message'|trans }}
                 </p>
             </div>
         </main>

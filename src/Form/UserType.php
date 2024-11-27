@@ -14,9 +14,16 @@ use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 class UserType extends AbstractType
 {
+    public function __construct(
+        private readonly TranslatorInterface $translator
+    )
+    {
+    }
+
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
@@ -46,7 +53,7 @@ class UserType extends AbstractType
                 'label' => 'Contract Type',
                 'choices' => ContractTypeEnum::cases(),
                 'choice_label' => function ($choice) {
-                    return $choice->name;
+                    return $choice->trans($this->translator);
                 },
             ])
             ->add(
@@ -74,8 +81,8 @@ class UserType extends AbstractType
             ->add('useTwoFactorAuth', ChoiceType::class, [
                 'label' => 'Use Two Factor Auth',
                 'choices' => [
-                    'Oui' => true,
-                    'Non' => false,
+                    $this->translator->trans('Oui', [], 'messages') => true,
+                    $this->translator->trans('Non', [], 'messages') => false,
                 ],
             ])
         ;

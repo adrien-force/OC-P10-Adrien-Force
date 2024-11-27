@@ -2,7 +2,7 @@
 
 {% block loggingcard %}
 
-<h1 style="padding-bottom: 30px"> Se connecter </h1>
+    <h1 style="padding-bottom: 30px"> {{ 'signIn.title'|trans }} </h1>
 
     {% if error %}
         <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
@@ -12,16 +12,16 @@
 
     <form action="{{ path('app_signIn') }}" method="post">
 
-        <label for="username">Email:</label>
+        <label for="username">{{ 'signIn.email_label'|trans }}</label>
         <input type="text" id="username" name="_username" value="{{ last_username }}" required>
 
-        <label for="password">Password:</label>
+        <label for="password">{{ 'signIn.password_label'|trans }}</label>
         <input type="password" id="password" name="_password" required>
 
 
         <br>
     <br>
-    <button class="button button-submit" style="width: 100%">Continuer</button>
+        <button class="button button-submit" style="width: 100%">{{ 'signIn.continue_button'|trans }}</button>
 </form>
-    <h4 style="padding-bottom: 40px"> Pas de compte ? <a href="{{ path('app_signUp') }}">S'inscrire</a></h4>
+    <h4 style="padding-bottom: 40px">{{ 'signIn.no_account'|trans }} <a href="{{ path('app_signUp') }}">{{ 'signIn.sign_up'|trans }}</a></h4>
 {% endblock %}

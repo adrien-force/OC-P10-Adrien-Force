@@ -1,0 +1,123 @@
+nav :
+  projects: "Projets"
+  team: "Équipe"
+  logout: "Déconnexion"
+
+index:
+  welcome:
+    title: "Bienvenue sur TaskLinker"
+    start_now: "Commencez dès maintenant - gratuitement"
+    login: "Vous avez déjà un compte ?"
+  signIn: "Se connecter"
+  or: "ou"
+  signUp: "S'inscrire"
+
+error:
+  unauthorized:
+    title: "Erreur 403: Accès refusé "
+    message: "Vous n'avez pas les droits nécessaires pour accéder à cette page."
+  unhandled:
+    title: "Erreur %code%: Une erreur est survenue"
+    message: "Une erreur est survenue lors du traitement de votre demande."
+
+signIn:
+  title: "Se connecter"
+  email_label: "Email:"
+  password_label: "Password:"
+  continue_button: "Continuer"
+  no_account: "Pas de compte ?"
+  sign_up: "S'inscrire"
+  error_message: "Erreur: {{ error }}"
+
+signUp:
+  title: "S’inscrire"
+  lastname_label: "Nom"
+  firstname_label: "Prénom"
+  email_label: "E-mail"
+  password_label: "Mot de passe"
+  confirm_password_label: "Confirmation mot de passe"
+  continue_button: "Continuer"
+  already_have_account: "Vous avez déjà un compte ?"
+
+project:
+  list:
+    title: "Liste des projets - TaskLinker"
+  new:
+    title: "Nouveau projet"
+    name_label: "Titre du projet"
+    invite_members_label: "Inviter des membres"
+    continue_button: "Continuer"
+  edit:
+    title: "Modifier le projet"
+    name_label: "Titre du projet"
+    invite_members_label: "Inviter des membres"
+    start_date_label: "Date de début"
+    deadline_label: "Date de fin"
+    tags_label: "Tags"
+    archived_label: "Archivé"
+    continue_button: "Continuer"
+    delete_project: "Supprimer le projet"
+    confirm_delete: "Êtes-vous sûr de vouloir supprimer ce projet ?"
+  index:
+    title: "Projets"
+    add_project: "Ajouter un projet"
+    confirm_delete: "Êtes-vous sûr de vouloir supprimer ce projet ?"
+  show:
+    modify: "Modifier"
+    add_task: "+ Ajouter une tâche"
+
+task:
+  add:
+    create_task: "Créer une tâche"
+    title_label: "Titre"
+    description_label: "Description"
+    date_label: "Date"
+    status_label: "Statut"
+    collaborator_label: "Collaborateur"
+    add_button: "Ajouter"
+    delete_task: "Supprimer la tâche"
+
+user:
+  add:
+    title: "Ajouter un collaborateur"
+    lastname_label: "Nom"
+    firstname_label: "Prénom"
+    email_label: "Email"
+    password_label: "Mot de passe"
+    confirm_password_label: "Confirmation mot de passe"
+    active_label: "Actif"
+    role_label: "Rôle"
+    arrival_date_label: "Date d'arrivée"
+    contract_type_label: "Type de contrat"
+    two_factor_auth_label: "Double authentification par email"
+    save_button: "Enregistrer"
+  edit:
+    title: "Modifier le profil d'un collaborateur"
+    lastname_label: "Nom"
+    firstname_label: "Prénom"
+    email_label: "Email"
+    active_label: "Actif"
+    role_label: "Rôle"
+    arrival_date_label: "Date d'arrivée"
+    contract_type_label: "Type de contrat"
+    two_factor_auth_label: "Double authentification par email"
+    save_button: "Enregistrer"
+  list:
+    team: "Équipe"
+    add_user: "Ajouter un collaborateur"
+    first_last_name: "Prénom, Nom"
+    status: "Statut"
+    role: "Rôle"
+    actions: "Actions"
+    edit: "Éditer"
+    delete: "Supprimer"
+    confirm_delete: "Êtes-vous sûr de vouloir supprimer cet utilisateur ?"
+
+enum:
+  contractType:
+    CDI: "CDI"
+    CDD: "CDD"
+Admin: "Admin"
+Collaborateur: "Collaborateur"
+Oui: "Oui"
+Non: "Non"

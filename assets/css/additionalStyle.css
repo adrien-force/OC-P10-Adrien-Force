@@ -64,7 +64,22 @@ button:hover {
     text-underline-position: from-font;
     text-decoration-skip-ink: none;
     padding-bottom: 10px;
+}
 
+.language-switcher {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 15vh;
+}
+
+.language-switcher a {
+    margin-left: 10px;
+    text-decoration: none;
 }
 
 main:has(.logging-card) {

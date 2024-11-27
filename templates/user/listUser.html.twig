@@ -4,7 +4,7 @@
     <script>
         function confirmDelete(event, userId) {
             event.preventDefault();
-            if (confirm('Êtes-vous sûr de vouloir supprimer cet utilisateur ?')) {
+            if (confirm('{{ 'user.list.confirm_delete'|trans }}')) {
                 window.location.href = '/user/delete/' + userId;
             }
         }
@@ -24,7 +24,7 @@
                 <div class="flex-header">
                 <h1>Équipe</h1>
                     {% if is_granted('ROLE_ADMIN') %}
-                <a class="button" href="{{ path('app_user_add')}}">Ajouter un collaborateur</a>
+                        <a class="button" href="{{ path('app_user_add') }}">{{ 'user.list.add_user'|trans }}</a>
                     {% endif %}
                 </div>
             </div>
@@ -33,11 +33,11 @@
             <table id="team-container">
                 <thead>
                 <tr>
-                    <th>Prénom, Nom</th>
-                    <th>Statut</th>
-                    <th>Rôle</th>
+                    <th>{{ 'user.list.first_last_name'|trans }}</th>
+                    <th>{{ 'user.list.status'|trans }}</th>
+                    <th>{{ 'user.list.role'|trans }}</th>
                     {% if is_granted('ROLE_ADMIN') %}
-                    <th>Actions</th>
+                        <th>{{ 'user.list.actions'|trans }}</th>
                     {% endif %}
                 </tr>
                 </thead>
@@ -55,16 +55,16 @@
                             </div>
                         </div>
                     </td>
-                    <td> {{ user.contractType|enum_to_string }}</td>
-                    <td>{{ user.roleLabel }}</td>
+                    <td> {{ user.contractType|trans }}</td>
+                    <td>{{ user.roleLabel|trans }}</td>
                     {% if is_granted('ROLE_ADMIN') %}
                     <td>
                         <div class="table-buttons-container">
                             <a class="button button-edit-team" href="{{ path('app_user_edit' ,{id: user.id}) }}">
-                                Éditer
+                                {{ 'user.list.edit'|trans }}
                             </a>
                             <a class="delete-team" href="#" onclick="confirmDelete(event, {{ user.id }})">
-                                Supprimer
+                                {{ 'user.list.delete'|trans }}
                             </a>
                         </div>
 

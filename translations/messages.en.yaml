@@ -1,0 +1,123 @@
+nav:
+  projects: "Projects"
+  team: "Team"
+  logout: "Logout"
+
+index:
+  welcome:
+    title: "Welcome to TaskLinker"
+    start_now: "Start now - for free"
+    login: "Already have an account?"
+  signIn: "Sign In"
+  or: "or"
+  signUp: "Sign Up"
+
+error:
+  unauthorized:
+    title: "Error 403: Access Denied"
+    message: "You do not have the necessary rights to access this page."
+  unhandled:
+    title: "Error %code%: An error occurred"
+    message: "An error occurred while processing your request."
+
+signIn:
+  title: "Sign In"
+  email_label: "Email:"
+  password_label: "Password:"
+  continue_button: "Continue"
+  no_account: "No account?"
+  sign_up: "Sign Up"
+  error_message: "Error: {{ error }}"
+
+signUp:
+  title: "Sign Up"
+  lastname_label: "Last Name"
+  firstname_label: "First Name"
+  email_label: "Email"
+  password_label: "Password"
+  confirm_password_label: "Confirm Password"
+  continue_button: "Continue"
+  already_have_account: "Already have an account?"
+
+project:
+  list:
+    title: "Project List - TaskLinker"
+  new:
+    title: "New Project"
+    name_label: "Project Title"
+    invite_members_label: "Invite Members"
+    continue_button: "Continue"
+  edit:
+    title: "Edit Project"
+    name_label: "Project Title"
+    invite_members_label: "Invite Members"
+    start_date_label: "Start Date"
+    deadline_label: "End Date"
+    tags_label: "Tags"
+    archived_label: "Archived"
+    continue_button: "Continue"
+    delete_project: "Delete Project"
+    confirm_delete: "Are you sure you want to delete this project?"
+  index:
+    title: "Projects"
+    add_project: "Add Project"
+    confirm_delete: "Are you sure you want to delete this project?"
+  show:
+    modify: "Edit"
+    add_task: "+ Add Task"
+
+task:
+  add:
+    create_task: "Create Task"
+    title_label: "Title"
+    description_label: "Description"
+    date_label: "Date"
+    status_label: "Status"
+    collaborator_label: "Collaborator"
+    add_button: "Add"
+    delete_task: "Delete Task"
+
+user:
+  add:
+    title: "Add Collaborator"
+    lastname_label: "Last Name"
+    firstname_label: "First Name"
+    email_label: "Email"
+    password_label: "Password"
+    confirm_password_label: "Confirm Password"
+    active_label: "Active"
+    role_label: "Role"
+    arrival_date_label: "Arrival Date"
+    contract_type_label: "Contract Type"
+    two_factor_auth_label: "Two-Factor Authentication by Email"
+    save_button: "Save"
+  edit:
+    title: "Edit Collaborator Profile"
+    lastname_label: "Last Name"
+    firstname_label: "First Name"
+    email_label: "Email"
+    active_label: "Active"
+    role_label: "Role"
+    arrival_date_label: "Arrival Date"
+    contract_type_label: "Contract Type"
+    two_factor_auth_label: "Two-Factor Authentication by Email"
+    save_button: "Save"
+  list:
+    team: "Team"
+    add_user: "Add Collaborator"
+    first_last_name: "First Name, Last Name"
+    status: "Status"
+    role: "Role"
+    actions: "Actions"
+    edit: "Edit"
+    delete: "Delete"
+    confirm_delete: "Are you sure you want to delete this user?"
+
+enum:
+  contractType:
+    CDI: "Permanent Contract"
+    CDD: "Fixed-term Contract"
+Admin: "Administrator"
+Collaborateur: "Collaborator"
+Oui: "Yes"
+Non: "No"

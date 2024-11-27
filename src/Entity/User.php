@@ -11,6 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Scheb\TwoFactorBundle\Model\Email\TwoFactorInterface;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
+use App\Service\TranslatorHelper;
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
 #[ORM\Table(name: '`user`')]
@@ -214,7 +215,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface, TwoFact
             'ROLE_ADMIN' => 'Admin',
             'ROLE_USER' => 'Collaborateur',
         };
-}
+    }
 
     public function setRoles(?array $roles): User
     {

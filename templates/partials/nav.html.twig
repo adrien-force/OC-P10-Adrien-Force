@@ -5,21 +5,21 @@
     <ul id="main-menu">
         <li class="{{ app.request.attributes.get('_route') starts with 'app_project' ? 'active' : '' }}">
             <a href="{{ path('app_project_index')}}">
-                <i class="fa-solid fa-list-check"></i> Projets
+                <i class="fa-solid fa-list-check"></i> {{ 'nav.projects'|trans }}
             </a>
         </li>
         <li class="{{ app.request.attributes.get('_route') starts with 'app_user' ? 'active' : '' }}">
             <a
                     href="{{ path('app_user_list') }}"
             >
-                <i class="fa-regular fa-user"></i> Équipe
+                <i class="fa-regular fa-user"></i> {{ 'nav.team'|trans }}
             </a>
         </li>
     </ul>
 
     <div class="logout-container">
     <a class="logout-link" href="{{ path('_logout_main') }}" id="logout">
-        <i class="fa-solid fa-sign-out"></i> Déconnexion
+        <i class="fa-solid fa-sign-out"></i> {{ 'nav.logout'|trans }}
     </a>
 
     </div>

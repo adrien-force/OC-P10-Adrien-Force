@@ -15,7 +15,7 @@
                         {% if task.id %}
                         {{ task.title }}
                         {% else %}
-                        Créer une tâche
+                            {{ 'task.add.create_task'|trans }}
                         {% endif %}
                     </h1>
                 </div>
@@ -24,14 +24,14 @@
                 {{ form_start(form) }}
                 <form name="tache" method="post">
                     <div>
-                        {{ form_label(form.title, 'Titre') }}
+                        {{ form_label(form.title, 'task.add.title_label'|trans) }}
                         {{ form_widget(form.title) }}
                         <div class="form-error-message">
                             {{ form_errors(form.title) }}
                         </div>
                     </div>
                     <div>
-                        {{ form_label(form.description, 'Description') }}
+                        {{ form_label(form.description, 'task.add.description_label'|trans) }}
                         {{ form_widget(form.description) }}
                         <div class="form-error-message">
                             {{ form_errors(form.description) }}
@@ -39,7 +39,7 @@
                     </div>
                     <div class="flex-form">
                         <div>
-                            {{ form_label(form.deadline, 'Date') }}
+                            {{ form_label(form.deadline, 'task.add.date_label'|trans) }}
                             {{ form_widget(form.deadline) }}
                             <div class="form-error-message">
                                 {{ form_errors(form.deadline) }}
@@ -47,7 +47,7 @@
                         </div>
                         <div>
                             <div>
-                                {{ form_label(form.status, 'Statut') }}
+                                {{ form_label(form.status, 'task.add.status_label'|trans) }}
                                 {{ form_widget(form.status) }}
                                 <div class="form-error-message">
                                     {{ form_errors(form.status) }}
@@ -56,17 +56,17 @@
                         </div>
                     </div>
                     <div>
-                        {{ form_label(form.user, 'Collaborateur') }}
+                        {{ form_label(form.user, 'task.add.collaborator_label'|trans) }}
                         {{ form_widget(form.user) }}
                         <div class="form-error-message">
                             {{ form_errors(form.user) }}
                         </div>
                     </div>
                     <br>
-                    <button class="button button-submit">Ajouter</button>
+                    <button class="button button-submit">{{ 'task.add.add_button'|trans }}</button>
                     {% if task.id %}
                         <br>
-                        <a href="{{ path('app_task_delete', {id: task.id}) }}" class="delete-task">Supprimer la tâche </a>
+                        <a href="{{ path('app_task_delete', {id: task.id}) }}" class="delete-task">{{ 'task.add.delete_task'|trans }}</a>
                     {% endif %}
                 </form>
                 {{ form_end(form) }}

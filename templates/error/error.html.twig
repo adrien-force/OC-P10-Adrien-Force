@@ -12,13 +12,13 @@
                 {% endif %}
                 <div id="title-page">
                     <h1>
-                        Erreur {{ code }}: Une erreur est survenue
+                        {{ 'error.unhandled.title'|trans({'%code%': code}) }}
                     </h1>
                 </div>
             </header>
             <div id="content" style="display: flex; justify-content: center">
                 <p>
-                    Une erreur est survenue lors du traitement de votre demande.
+                    {{ 'error.unhandled.message'|trans }}
                 </p>
             </div>
         </main>

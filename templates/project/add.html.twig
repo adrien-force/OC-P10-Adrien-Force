@@ -11,7 +11,7 @@
                     {{ include('partials/userInitialsBadge.html.twig') }}
                 {% endif %}
                 <div id="title-page">
-                    <h1>Nouveau projet</h1>
+                    <h1>{{ 'project.new.title'|trans }}</h1>
                 </div>
             </header>
             <div id="content">
@@ -19,7 +19,7 @@
                 <form name="projet" method="post">
                     <div>
                         <label for="projet_nom" class="required">
-                            {{ form_label(form.name, 'Titre du projet') }}
+                            {{ form_label(form.name, 'project.new.name_label'|trans) }}
                             {{ form_widget(form.name) }}
                             <div class="form-error-message">
                                 {{ form_errors(form.name) }}
@@ -27,7 +27,7 @@
                         </label>
                     </div>
                     <div>
-                        {{ form_label(form.users, 'Inviter des membres') }}
+                        {{ form_label(form.users, 'project.new.invite_members_label'|trans) }}
                         {{ form_widget(form.users) }}
                         <div class="form-error-message">
                             {{ form_errors(form.users) }}
@@ -35,7 +35,7 @@
                     </div>
                     <br>
                     <br>
-                    <button class="button button-submit">Continuer</button>
+                    <button class="button button-submit">{{ 'project.new.continue_button'|trans }}</button>
                 </form>
                 {{ form_end(form) }}
             </div>
