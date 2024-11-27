@@ -23,7 +23,10 @@ div#main-container {
 }
 
 nav {
+    position: sticky;
+    height: 100vh;
     display: flex;
+    top: 0;
     flex-direction: column;
     width: 300px;
     flex-grow: 0;
