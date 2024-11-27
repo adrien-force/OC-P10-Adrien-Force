@@ -59,12 +59,15 @@
                     <td>{{ user.roleLabel }}</td>
                     {% if is_granted('ROLE_ADMIN') %}
                     <td>
-                        <a class="button button-edit-team" href="{{ path('app_user_edit' ,{id: user.id}) }}">
-                            Éditer
-                        </a>
-                        <a class="delete-team" href="#" onclick="confirmDelete(event, {{ user.id }})">
-                            Supprimer
-                        </a>
+                        <div class="table-buttons-container">
+                            <a class="button button-edit-team" href="{{ path('app_user_edit' ,{id: user.id}) }}">
+                                Éditer
+                            </a>
+                            <a class="delete-team" href="#" onclick="confirmDelete(event, {{ user.id }})">
+                                Supprimer
+                            </a>
+                        </div>
+
                     </td>
                     {# Workaround to avoid changing lastChild table style for button :) #}
                     {% else %}

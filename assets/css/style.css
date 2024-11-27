@@ -377,7 +377,7 @@ table#team-container tr td {
     color: #202020;
 }
 
-table#team-container tbody tr td:last-child {
+.table-buttons-container {
     display: flex;
     align-items: center;
     gap: 35px;
