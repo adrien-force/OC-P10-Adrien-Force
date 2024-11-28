@@ -41,7 +41,7 @@ signUp:
 
 project:
   list:
-    title: "Liste des projets - TaskLinker"
+    title: "Liste des projets"
   new:
     title: "Nouveau projet"
     name_label: "Titre du projet"

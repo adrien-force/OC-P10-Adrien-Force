@@ -1,4 +1,9 @@
 {% extends 'base.html.twig' %}
+
+{% block title %}
+    <title> {{ 'project.edit.title'|trans }} {{ project.name }} - TaskLinker </title>
+{% endblock %}
+
 {% block body %}
     <script>
         function confirmDelete(event, projectId) {

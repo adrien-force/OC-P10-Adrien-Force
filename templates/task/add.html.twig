@@ -1,4 +1,16 @@
 {% extends 'base.html.twig' %}
+
+{% block title %}
+    <title>
+        {% if task.id %}
+            {{ task.title }} - TaskLinker
+        {% else %}
+            {{ 'task.add.create_task'|trans }} - TaskLinker
+        {% endif %}
+
+    </title>
+{% endblock %}
+
 {% block body %}
     <!DOCTYPE html>
     <html lang="fr">
