@@ -23,6 +23,9 @@ class LocaleListener implements EventSubscriberInterface
         if ($request->hasSession()) {
             $locale = $this->languageSwitcher->getLocale();
             $request->setLocale($locale);
+        } else {
+            $preferredLanguage = $request->getPreferredLanguage(['en', 'fr']);
+            $this->languageSwitcher->switchLanguage($preferredLanguage);
         }
     }
 
