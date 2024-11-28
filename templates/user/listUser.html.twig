@@ -27,7 +27,7 @@
             {% endif %}
             <div id="title-page">
                 <div class="flex-header">
-                <h1>Équipe</h1>
+                <h1> {{ 'user.list.team'|trans }}</h1>
                     {% if is_granted('ROLE_ADMIN') %}
                         <a class="button" href="{{ path('app_user_add') }}">{{ 'user.list.add_user'|trans }}</a>
                     {% endif %}
