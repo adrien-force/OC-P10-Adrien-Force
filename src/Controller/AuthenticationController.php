@@ -48,7 +48,6 @@ class AuthenticationController extends AbstractController
     ): Response {
 
         $newUser = new User();
-        $newUser->setActive(true);
         $newUser->setArrivalAt(new \DateTimeImmutable());
         $newUser->setContractType(ContractTypeEnum::CDI);
 

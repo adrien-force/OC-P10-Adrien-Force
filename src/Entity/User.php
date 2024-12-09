@@ -57,7 +57,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface, TwoFact
     #[ORM\JoinColumn(nullable: true)]
     private Collection $projects;
 
-    private ?bool $active = null;
+
+    #[ORM\Column(type: 'boolean', nullable: true)]
+    private ?bool $active = true;
 
     #[ORM\Column(type: 'string', nullable: true)]
     private ?string $authCode;
