@@ -5,8 +5,7 @@ namespace App\Controller;
 use App\Service\LanguageSwitcher;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
-use Symfony\Component\Routing\Annotation\Route;
-
+use Symfony\Component\Routing\Attribute\Route;
 class LanguageController extends AbstractController
 {
     private LanguageSwitcher $languageSwitcher;

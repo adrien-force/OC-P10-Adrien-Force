@@ -14,13 +14,6 @@ use Symfony\Component\Routing\Attribute\Route;
 
 class TaskController extends AbstractController
 {
-    #[Route('/tasks', name: 'app_task_index')]
-    public function index(): Response
-    {
-        return $this->render('task/index.html.twig', [
-            'controller_name' => 'TaskController',
-        ]);
-    }
 
     #[Route('/task/edit/{id}', name: 'app_project_task_edit')]
     public function edit(

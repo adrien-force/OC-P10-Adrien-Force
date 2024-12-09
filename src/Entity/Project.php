@@ -36,7 +36,7 @@ class Project
     /**
      * @var Collection<int, Task>
      */
-    #[ORM\OneToMany(targetEntity: Task::class, mappedBy: 'project')]
+    #[ORM\OneToMany(targetEntity: Task::class, mappedBy: 'project', orphanRemoval: true)]
     #[ORM\JoinColumn(nullable: true)]
     private Collection $tasks;
 
