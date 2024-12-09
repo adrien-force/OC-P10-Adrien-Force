@@ -37,14 +37,14 @@ Durant ce projet, j'ai ajouté un système d'authentification par utilisateur, p
 git clone https://github.com/adrien-force/OC-P10-Adrien-Force.git
 ```
 
-2. Mettez à jour vos dépendances avec Composer
-```bash
-composer install
-```
-
-3. Lancer le container pour la base de données
+2. Lancer le container pour la base de données
 ```bash
 docker-compose up -d
+```
+
+3. Mettez à jour vos dépendances avec Composer
+```bash
+composer install
 ```
 
 4. Créer la base de données et mettre à jour le schéma
